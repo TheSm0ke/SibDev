@@ -1,0 +1,24 @@
+{% extends 'base_temp.html' %}
+
+  {% block title %}
+      TagCreat - {{ block.super }}
+  {% endblock %}
+
+  {% block content %}
+  <form class="form-group" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% if errors %}
+        <div class="alert alert-danger">
+          {{ errors }}
+        </div>
+      {% endif %}
+      <input type="file" name="document" ><br>
+      <button type="submit" name="button">Upload file</button>
+  </form>
+  {% if response %}
+    <div class="alert alert-success">
+     {{response}}
+    </div>
+  {% endif %}
+  <a href="{% url 'objects_detail_url' %}" class="btn btn-primary">All Objects</a>
+  {% endblock %}

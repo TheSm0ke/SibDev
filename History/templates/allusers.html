@@ -1,0 +1,20 @@
+{% extends 'base_temp.html'%}
+
+  {% block title %}
+    {{block.super}}
+  {% endblock %}
+
+  {% block content %}
+  {% for user in users %}
+  <div class="card">
+    <div class="card-header">
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Логин пользователя: {{user.username}}</h5>
+      <p class="card-text">Потраченных денег: {{ user.spent_money }}</p>
+      <p class="card-text">Купленный камень: {{ user.gems }}</p>
+    </div>
+  </div>
+  <br>
+{% endfor %}
+ {% endblock %}
